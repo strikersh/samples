@@ -1,4 +1,4 @@
-# DolceSDK Samples
+# DolceSDK Samples [![Build Status](https://travis-ci.org/DolceSDK/samples.svg?branch=master)](https://travis-ci.org/DolceSDK/samples)
 
 ## Prerequisites
 
