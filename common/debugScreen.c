@@ -2,7 +2,7 @@
 #define DEBUG_SCREEN_C
 
 /*
-* debugScreen.c of Vita SDK
+* debugScreen.c of DolceSDK
 *
 * - psvDebugScreenInit()
 *    Initializes debug screen for output.

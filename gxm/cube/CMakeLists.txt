@@ -1,16 +1,16 @@
 cmake_minimum_required(VERSION 2.8)
 
 if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
-  if(DEFINED ENV{VITASDK})
-    set(CMAKE_TOOLCHAIN_FILE "$ENV{VITASDK}/share/vita.toolchain.cmake" CACHE PATH "toolchain file")
+  if(DEFINED ENV{DOLCESDK})
+    set(CMAKE_TOOLCHAIN_FILE "$ENV{DOLCESDK}/share/dolce.toolchain.cmake" CACHE PATH "toolchain file")
   else()
-    message(FATAL_ERROR "Please define VITASDK to point to your SDK path!")
+    message(FATAL_ERROR "Please define DOLCESDK to point to your SDK path!")
   endif()
 endif()
 
 set(SHORT_NAME gxm_cube_sample)
 project(${SHORT_NAME})
-include("${VITASDK}/share/vita.cmake" REQUIRED)
+include("${DOLCESDK}/share/dolce.cmake" REQUIRED)
 
 set(VITA_APP_NAME "GXM Cube example")
 set(VITA_TITLEID  "VSDK00016")
@@ -57,7 +57,7 @@ endforeach()
 foreach(gxp ${SHADER_GXPS})
 	get_filename_component(gxp_we ${gxp} NAME_WE)
 	add_custom_command(OUTPUT "${gxp_we}_gxp.o"
-		COMMAND arm-vita-eabi-objcopy --input binary --output elf32-littlearm
+		COMMAND arm-dolce-eabi-objcopy --input binary --output elf32-littlearm
 			--binary-architecture arm "${gxp}"
 			"${CMAKE_BINARY_DIR}/${gxp_we}_gxp.o"
 		WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
@@ -81,8 +81,8 @@ target_link_libraries(${SHORT_NAME}
   SceAudio_stub
 )
 
-vita_create_self(${SHORT_NAME}.self ${SHORT_NAME})
-vita_create_vpk(${SHORT_NAME}.vpk ${VITA_TITLEID} ${SHORT_NAME}.self
+dolce_create_self(${SHORT_NAME}.self ${SHORT_NAME})
+dolce_create_vpk(${SHORT_NAME}.vpk ${VITA_TITLEID} ${SHORT_NAME}.self
   VERSION ${VITA_VERSION}
   NAME ${VITA_APP_NAME}
 )

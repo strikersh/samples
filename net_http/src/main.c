@@ -1,5 +1,3 @@
-#define VITASDK
-
 #include <psp2/sysmodule.h>
 #include <psp2/kernel/processmgr.h>
 #include <psp2/display.h>

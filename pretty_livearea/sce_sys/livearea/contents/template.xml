@@ -55,17 +55,17 @@
 	<frame id="frame4">
 		<liveitem> <lang>en</lang>
 			<text align="right" text-align="right" word-wrap="off" ellipsis="on">
-				<str size="18" color="#f3f315" bold="on" shadow="on">A sample for vitasdk.</str>
+				<str size="18" color="#f3f315" bold="on" shadow="on">A sample for DolceSDK.</str>
 			</text>
 		</liveitem>
 		<liveitem> <lang>en-gb</lang>
 			<text align="right" text-align="right" word-wrap="off" ellipsis="on">
-				<str size="18" color="#f3f315" bold="on" shadow="on">A sample for vitasdk.</str>
+				<str size="18" color="#f3f315" bold="on" shadow="on">A sample for DolceSDK.</str>
 			</text>
 		</liveitem>
 		<liveitem> <lang>ja</lang>
 			<text align="right" text-align="right" word-wrap="off" ellipsis="on">
-				<str size="18" color="#f3f315" bold="on" shadow="on">vitasdkためのサンプル。</str>
+				<str size="18" color="#f3f315" bold="on" shadow="on">DolceSDKためのサンプル。</str>
 			</text>
 		</liveitem>
 	</frame>

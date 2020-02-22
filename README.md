@@ -1,8 +1,8 @@
-# vitasdk code samples
+# DolceSDK Samples
 
 ## Prerequisites
 
-In order to build a vita sample, you need to add the toolchain `bin/` directory to your `$PATH`.
+In order to build a sample, you need to add the toolchain `bin/` directory to your `$PATH`.
 
 ## Building
 
