@@ -1,5 +1,5 @@
 #include <psp2/kernel/clib.h>
-#include <psp2/io/fcntl.h>
+#include <psp2/kernel/iofilemgr.h>
 #include <psp2/kernel/sysmem.h>
 #include <psp2/kernel/modulemgr.h>
 #include <psp2/kernel/threadmgr.h>

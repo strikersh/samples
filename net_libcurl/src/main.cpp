@@ -1,4 +1,4 @@
-#include <psp2/io/stat.h> 
+#include <psp2/kernel/iofilemgr.h>
 #include <psp2/sysmodule.h>
 #include <psp2/kernel/processmgr.h>
 #include <psp2/display.h>
@@ -6,8 +6,6 @@
 #include <psp2/net/net.h>
 #include <psp2/net/netctl.h>
 #include <psp2/net/http.h>
-
-#include <psp2/io/fcntl.h>
 
 #include <stdio.h>
 #include <malloc.h>
@@ -22,7 +20,7 @@
 struct stringcurl {
   char *ptr;
   size_t len;
-}; 
+};
 void init_string(struct stringcurl *s) {
   s->len = 0;
   s->ptr = (char*)malloc(s->len+1);
@@ -60,7 +58,7 @@ void curlDownloadFile(std::string url , std::string file){
 	if(!imageFD){
 		return;
 	}
-	
+
 	CURL *curl;
 	CURLcode res;
 	curl = curl_easy_init();
@@ -84,7 +82,7 @@ void curlDownloadFile(std::string url , std::string file){
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
 
 		curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1L);
-		// The function that will be used to write the data 
+		// The function that will be used to write the data
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data_to_disk);
 		// The data filedescriptor which will be written to
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &imageFD);
@@ -100,23 +98,23 @@ void curlDownloadFile(std::string url , std::string file){
 		//headerchunk = curl_slist_append(headerchunk, "Host: discordapp.com");  Setting this will lead to errors when trying to download. should be set depending on location : possible : cdn.discordapp.com or images.discordapp.com
 		headerchunk = curl_slist_append(headerchunk, "Content-Length: 0");
 		res = curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headerchunk);
-		
-		
+
+
 		// Perform the request
 		res = curl_easy_perform(curl);
 		int httpresponsecode = 0;
 		curl_easy_getinfo (curl, CURLINFO_RESPONSE_CODE, &httpresponsecode);
-		
+
 		if(res != CURLE_OK){
 			//fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
-			
+
 		}else{
-			
+
 		}
-		
-		
+
+
 	}else{
-		
+
 	}
 
 	// close filedescriptor
@@ -124,13 +122,13 @@ void curlDownloadFile(std::string url , std::string file){
 
 	// cleanup
 	curl_easy_cleanup(curl);
-	
+
 }
 
 void netInit() {
 	psvDebugScreenPrintf("Loading module SCE_SYSMODULE_NET\n");
 	sceSysmoduleLoadModule(SCE_SYSMODULE_NET);
-	
+
 	psvDebugScreenPrintf("Running sceNetInit\n");
 	SceNetInitParam netInitParam;
 	int size = 4*1024*1024;

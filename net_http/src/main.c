@@ -6,7 +6,7 @@
 #include <psp2/net/netctl.h>
 #include <psp2/net/http.h>
 
-#include <psp2/io/fcntl.h>
+#include <psp2/kernel/iofilemgr.h>
 
 #include <stdio.h>
 #include <malloc.h>
@@ -17,7 +17,7 @@
 void netInit() {
 	psvDebugScreenPrintf("Loading module SCE_SYSMODULE_NET\n");
 	sceSysmoduleLoadModule(SCE_SYSMODULE_NET);
-	
+
 	psvDebugScreenPrintf("Running sceNetInit\n");
 	SceNetInitParam netInitParam;
 	int size = 1*1024*1024;
