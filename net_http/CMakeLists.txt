@@ -28,11 +28,11 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  SceDisplay_stub
-  SceSysmodule_stub
+  SceDisplayUser_stub
+  SceHttp_stub
   SceNet_stub
   SceNetCtl_stub
-  SceHttp_stub
+  SceSysmodule_stub
 )
 
 dolce_create_self(${PROJECT_NAME}.self ${PROJECT_NAME})

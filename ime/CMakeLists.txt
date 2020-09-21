@@ -27,10 +27,11 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  SceDisplay_stub
-  SceGxm_stub
   SceAppUtil_stub
   SceCommonDialog_stub
+  SceDisplay_stub
+  SceDisplayUser_stub
+  SceGxm_stub
   SceSysmodule_stub
 )
 

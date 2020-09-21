@@ -58,7 +58,7 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
   SceLibKernel_stub # this line is only for demonstration. It's not needed as
                     # the most common stubs are automatically included.
-  SceDisplay_stub   # This used by debugScreenPrintf()
+  SceDisplayUser_stub # This used by debugScreenPrintf()
 )
 
 ## Create Vita files

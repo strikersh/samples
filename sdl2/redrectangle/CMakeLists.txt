@@ -29,14 +29,15 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
   SDL2
   vita2d
-  SceDisplay_stub
-  SceCtrl_stub
   SceAudio_stub
-  SceSysmodule_stub
-  SceGxm_stub
   SceCommonDialog_stub
-  SceTouch_stub
+  SceCtrl_stub
+  SceDisplay_stub
+  SceDisplayUser_stub
+  SceGxm_stub
   SceHid_stub
+  SceSysmodule_stub
+  SceTouch_stub
   m
 )
 

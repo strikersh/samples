@@ -28,7 +28,7 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  SceDisplay_stub
+  SceDisplayUser_stub
   SceRtc_stub
 )
 

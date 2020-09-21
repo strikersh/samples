@@ -31,20 +31,17 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  SceDisplay_stub
+  SceDisplayUser_stub
+  SceHttp_stub
   SceIofilemgr_stub
-  SceSysmodule_stub
   SceNet_stub
   SceNetCtl_stub
-  SceHttp_stub
   SceSsl_stub
+  SceSysmodule_stub
   ${CURL_LIBRARIES}
   ${OPENSSL_LIBRARIES}
-  c
   m
   z
-
-
 )
 
 dolce_create_self(${PROJECT_NAME}.self ${PROJECT_NAME})

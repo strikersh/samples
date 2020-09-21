@@ -28,8 +28,8 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  SceDisplay_stub
   SceCtrl_stub
+  SceDisplayUser_stub
   SceNet_stub
   SceSysmodule_stub
 )

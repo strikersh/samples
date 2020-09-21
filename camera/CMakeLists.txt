@@ -27,9 +27,9 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  SceDisplay_stub
-  SceCtrl_stub
   SceCamera_stub
+  SceCtrl_stub
+  SceDisplayUser_stub
 )
 
 dolce_create_self(${PROJECT_NAME}.self ${PROJECT_NAME})
