@@ -1,16 +1,13 @@
-language: cpp
+language: c
 os: linux
+dist: bionic
 script:
     - cd $TRAVIS_BUILD_DIR
-    - curl https://api.github.com/repos/DolceSDK/autobuilds/releases | grep browser_download_url | grep linux | head -n 1 | cut -d '"' -f 4 | xargs curl -L | tar xj
     - export DOLCESDK=$PWD/dolcesdk
     - export PATH=$DOLCESDK/bin:$PATH
-    - curl -sL https://github.com/DolceSDK/ddpm/raw/master/ddpm -o ddpm
-    - chmod +x ddpm
-    - curl -L https://github.com/DolceSDK/ddpm/raw/master/include/install-packages.sh -o install-packages.sh
-    - sed -i "s/\.\.\///" install-packages.sh
-    - curl -L https://github.com/DolceSDK/ddpm/raw/master/install-all.sh | sed -e "s/include\///" | bash > /dev/null
-    - rm ddpm
+    - git clone https://github.com/DolceSDK/ddpm.git
+    - bash ./ddpm/dolcesdk-update.sh
+    - dolcesdk-update-packages
     - mkdir build
     - cd build
     - cmake ..
