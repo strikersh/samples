@@ -1,14 +1,21 @@
 language: c
 os: linux
 dist: bionic
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb https://apt.kitware.com/ubuntu/ bionic main'
+        key_url: 'https://apt.kitware.com/keys/kitware-archive-latest.asc'
+    packages:
+      - cmake
+before_script:
+  - sudo rm -rf /usr/local/cmake-* # workaround to remove default cmake that has priority in PATH
+env:
+  - DOLCESDK="$HOME/dolcesdk"
+    PATH="$DOLCESDK/bin:$PATH"
 script:
-    - cd $TRAVIS_BUILD_DIR
-    - export DOLCESDK=$PWD/dolcesdk
-    - export PATH=$DOLCESDK/bin:$PATH
     - git clone https://github.com/DolceSDK/ddpm.git
-    - bash ./ddpm/dolcesdk-update.sh
+    - python3 ./ddpm/dolcesdk-update.py
     - dolcesdk-update-packages
-    - mkdir build
-    - cd build
-    - cmake ..
+    - cmake .
     - make
