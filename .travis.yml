@@ -14,8 +14,4 @@ env:
   - DOLCESDK="$HOME/dolcesdk"
     PATH="$DOLCESDK/bin:$PATH"
 script:
-    - git clone https://github.com/DolceSDK/ddpm.git
-    - python3 ./ddpm/dolcesdk-update.py
-    - dolcesdk-update-packages
-    - cmake .
-    - make
+  - .travis.d/script.sh
